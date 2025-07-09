@@ -2,7 +2,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 const IDKitWidget = dynamic(
-  () => import('@worldcoin/idkitui/').then(mod => mod.IDKitWidget),
+  () => import('@worldcoin/idkit/ui').then(mod => mod.IDKitWidget),
   { ssr: false }
 );
 
@@ -15,7 +15,7 @@ export default function Home() {
       <h1>🌱 Bienvenido a Farm World</h1>
       <p>Verifica tu identidad única con World ID:</p>
       <IDKitWidget
-        app_id="tu-app-id" // Reemplaza esto con tu App ID real
+        app_id="tu-app-id" // ← Reemplaza esto luego por tu App ID real
         action="farm-verification"
         onSuccess={() => alert('¡Humano verificado!')}
       >
@@ -24,4 +24,3 @@ export default function Home() {
     </div>
   );
 }
-
