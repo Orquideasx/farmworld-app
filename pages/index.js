@@ -10,7 +10,7 @@ const IDKitWidget = dynamic(
 export default function Home() {
   const handleSuccess = useCallback((proof) => {
     console.log('✅ Proof recibido:', proof);
-    alert('Verificación completada exitosamente');
+    alert('Verificación completada');
   }, []);
 
   return (
@@ -19,16 +19,16 @@ export default function Home() {
         <title>Farm World</title>
       </Head>
       <h1>🌱 Bienvenido a Farm World</h1>
-      <p>Verifica tu identidad única con World ID:</p>
+      <p>Verifica tu identidad con World ID:</p>
 
       <IDKitWidget
         app_id="tu-app-id"
         action="farm-verification"
         onSuccess={handleSuccess}
-        verification_level="orb" // o "device" si no tienes Orb
+        verification_level="orb"
       >
         {({ open }) => (
-          <button onClick={open} style={{ padding: '10px 20px', fontSize: '16px' }}>
+          <button onClick={open}>
             Verificar con World ID
           </button>
         )}
