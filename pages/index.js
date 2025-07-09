@@ -2,7 +2,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 
 const IDKitWidget = dynamic(
-  () => import('@worldcoin/idkit').then(mod => mod.IDKitWidget),
+  () => import('@worldcoin/idkitui/').then(mod => mod.IDKitWidget),
   { ssr: false }
 );
 
