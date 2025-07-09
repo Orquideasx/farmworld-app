@@ -3,14 +3,14 @@ import dynamic from 'next/dynamic';
 import { useCallback } from 'react';
 
 const IDKitWidget = dynamic(
-  () => import('@worldcoin/idkit').then(mod => mod.IDKitWidget),
+  () => import('@worldcoin/idkit/react').then(mod => mod.IDKitWidget),
   { ssr: false }
 );
 
 export default function Home() {
   const handleSuccess = useCallback((proof) => {
-    console.log("Proof received:", proof);
-    alert("✅ Humano verificado correctamente");
+    console.log('✅ Proof recibido:', proof);
+    alert('Verificación completada exitosamente');
   }, []);
 
   return (
@@ -22,10 +22,10 @@ export default function Home() {
       <p>Verifica tu identidad única con World ID:</p>
 
       <IDKitWidget
-        app_id="tu-app-id" // reemplaza con tu App ID real
+        app_id="tu-app-id"
         action="farm-verification"
         onSuccess={handleSuccess}
-        verification_level="orb" // o "device" si aún no tienes Orb
+        verification_level="orb" // o "device" si no tienes Orb
       >
         {({ open }) => (
           <button onClick={open} style={{ padding: '10px 20px', fontSize: '16px' }}>
